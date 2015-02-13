@@ -65,6 +65,18 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
 
+  # Multiple machines configuration
+  # to sh into one of them later, use
+  # vagrant ssh <name> (server1|server2)
+  # you can provision per machine - differently, ie. use chef for s1 and shell for s2
+  # config.vm.define :server1 do |server1|
+  #   server1.vm.box = "precise64"
+  # end
+
+  # config.vm.define :server2 do |server2|
+  #   server2.vm.box = "precise64"
+  # end
+
   # add files needed for puppet provisioning
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path   = "provision/manifests"
